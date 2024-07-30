@@ -18,8 +18,8 @@ function Cards(prop) {
       })
   }, [prop.URL])
   const opts = {
-    height: '160',
-    width: '285',
+    height: '180',
+    width: '320',
     playerVars: {
       autoplay: 1
     }
@@ -51,17 +51,23 @@ function Cards(prop) {
           <div
             key={i}
             className={
-              prop.main ? 'flex-none w-96 mr-5' : 'flex-none w-72 mr-4'
+              prop.main ? 'flex-none w-96 mr-5' : 'flex-none w-80 mr-4'
             }
           >
             {focused === obj.id ? (
-              <YouTube
-                videoId={link}
-                opts={prop.main ? optsbig : opts}
-                className='hover:scale-110 transition-all duration-900 ease-in-out cursor-pointer'
-              />
+              <div className='hover:scale-110 transition-transform duration-900 ease-in-out cursor-pointer '>
+                <YouTube videoId={link} opts={prop.main ? optsbig : opts} />
+                <div className='flex justify-between pt-1 mr-2 ml-1'>
+                  <p className='ml-1 font-semibold'>
+                    {obj.title ? obj.title : obj.name}
+                  </p>
+                  <p className='ml-1 text-right text-slate-300 font-thin'>
+                    {obj.title ? obj.release_date : obj.first_air_date}
+                  </p>
+                </div>
+              </div>
             ) : (
-              <div className='hover:scale-110 transition-all duration-900 ease-in-out cursor-pointer'>
+              <div className='hover:scale-110 transition-transform duration-900 ease-in-out cursor-pointer'>
                 <img
                   key={i}
                   src={`${imageUrl + obj.backdrop_path}`}
@@ -72,7 +78,7 @@ function Cards(prop) {
                   <p className='ml-1 font-semibold'>
                     {obj.title ? obj.title : obj.name}
                   </p>
-                  <p className='ml-1 text-right text-slate-300'>
+                  <p className='ml-1 text-right text-slate-300 font-thin'>
                     {obj.title ? obj.release_date : obj.first_air_date}
                   </p>
                 </div>

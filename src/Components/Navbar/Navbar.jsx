@@ -21,7 +21,7 @@ function Navbar() {
     <div
       className={`navbar h-16 flex items-center justify-between px-6 fixed w-full z-50 transition-all duration-300 ease-in-out ${
         isScrolled
-          ? ' bg-black bg-opacity-75 backdrop-blur-lg  '
+          ? ' bg-black bg-opacity-60 backdrop-blur-lg  '
           : 'bg-transparent'
       } `}
     >
